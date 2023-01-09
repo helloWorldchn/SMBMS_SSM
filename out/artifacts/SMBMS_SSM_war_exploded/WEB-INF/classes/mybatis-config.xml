@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!--配置数据源，交给Spring去做-->
+    <typeAliases>
+        <package name="com.carry.pojo"/>
+    </typeAliases>
+
+    <!--MapperRegistry:注册绑定我们的Mapper文件 因为我们spring-dao.xml 中配置了dao接口扫描包 所以此时我们这里不用重新注册 二选一即可-->
+    <mappers>
+        <mapper class="com.carry.dao.user.UserMapper"/>
+        <mapper class="com.carry.dao.role.RoleMapper"/>
+        <mapper class="com.carry.dao.provider.ProviderMapper"/>
+        <mapper class="com.carry.dao.bill.BillMapper"/>
+    </mappers>
+
+</configuration>
